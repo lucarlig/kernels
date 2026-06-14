@@ -20,11 +20,13 @@ for correctness and measured against a simple baseline.
 
 cuda-oxide is experimental and its API may change. Follow the official
 [cuda-oxide book](https://nvlabs.github.io/cuda-oxide/) for current setup steps.
+cuda-oxide currently targets Linux; use WSL, Linux, or a devcontainer for GPU
+kernel builds and runs.
 
 Expected local requirements:
 
 - NVIDIA GPU with a CUDA-capable driver
-- Rust toolchain compatible with the cuda-oxide version in use
+- Rust nightly pinned in `rust-toolchain.toml`
 - cuda-oxide tooling, including `cargo oxide`
 
 Once the toolchain is installed, the normal workflow should be:
@@ -32,7 +34,14 @@ Once the toolchain is installed, the normal workflow should be:
 ```powershell
 cargo fmt
 cargo test
+cargo oxide doctor
 cargo oxide build
+```
+
+Install `cargo oxide` with the same pinned nightly:
+
+```powershell
+cargo +nightly-2026-04-03 install --git https://github.com/NVlabs/cuda-oxide.git cargo-oxide
 ```
 
 ## Repository Layout
