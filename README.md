@@ -35,15 +35,17 @@ cargo test
 cargo oxide build
 ```
 
-## Planned Layout
+## Repository Layout
 
 ```text
+Cargo.toml       # workspace definition
 crates/
-  kernels/      # device kernels and host launch wrappers
+  kernels/
+    src/        # device kernels, host launch wrappers, and CPU references
 examples/       # runnable kernel demos
 tests/          # integration and correctness tests
 benches/        # benchmark harnesses and kernel comparisons
-docs/           # notes on kernel design and profiling results
+docs/           # kernel design notes and profiling results
 ```
 
 ## First Milestones
